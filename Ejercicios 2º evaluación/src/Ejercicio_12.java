@@ -59,7 +59,7 @@ public static String centro(int[] vector) {
 		}
 		if(suma_derecha==suma_izquierda) {
 			
-			return "El vector tiene centro en:"+centro;
+			return "El vector tiene centro en: "+centro;
 			
 		}else {
 			
