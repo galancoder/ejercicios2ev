@@ -9,8 +9,8 @@ package unidad6.Excepciones;
   De forma analoga, el metodo C  no puede gestionar la excepcion ya que tiene un bloque catch que gestiona NumberFormatException,
   por tanto se ejecuta el bloque finally del metodo C.
   
-  Es en el metodo C en el cual se incluye un bloque catch que gestiona las excepciones ArrayIndexOutOfBoundsException, en el cual la excepción
-  es gestionada correctamente y se sigue el flujo normal
+  Es en el metodo B en el cual se incluye un bloque catch que gestiona las excepciones ArrayIndexOutOfBoundsException, en el cual la excepción
+  es gestionada correctamente y se sigue el flujo normal pudiendo ejecutarse los metodos B y A de forma completa.
   
  * 
  * */
