@@ -16,30 +16,46 @@ public class Ejercicio_3 {
 
      Scanner teclado= new Scanner(System.in);
      
+     Scanner frase= new Scanner(teclado.nextLine());
+     
      List<String> lista= new ArrayList<String>();
      
-     Set<String> lista_no_duplicados= new TreeSet<String>();
+     Set<String> lista_repetidas= new TreeSet<String>();
      
-     Scanner frase= new Scanner(teclado.nextLine());
+    
      
      
 while (frase.hasNext()) {
 	
 	String palabra=frase.next();
 	
-	lista.add(palabra);
-	lista_no_duplicados.add(palabra);
+	if(!lista.contains(palabra) & !lista_repetidas.contains(palabra)) {
+		
+		lista.add(palabra);
+	}else if(lista.contains(palabra)) {
+		
+		lista.remove(palabra);
+		lista_repetidas.add(palabra);
+		
+	}
+	
 }
 
 frase.close();
-
 teclado.close();
-     
-lista.forEach(nombre -> System.out.print(nombre+"-"));
-
+   
+System.out.print("Lista no repetidas: [ ");
+lista.forEach(nombre -> System.out.print(nombre+" "));
+System.out.print("]");
 System.out.println("");
 
-lista_no_duplicados.forEach(nombre -> System.out.print(nombre+"-"));
+System.out.print("Lista repetidas: [ ");
+lista_repetidas.forEach(nombre -> System.out.print(nombre+" "));
+System.out.print("]");
+System.out.println("");
+
+
+
 
 
 		
