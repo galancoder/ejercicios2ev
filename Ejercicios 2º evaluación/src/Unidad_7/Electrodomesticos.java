@@ -1,0 +1,155 @@
+package Unidad_7;
+
+public abstract class Electrodomesticos implements Comparable<Electrodomesticos>{
+
+	private float Precio_base;
+
+	private color Color;
+	
+	private Consumo consumo;
+	
+	private float Peso=5;
+	
+	private float Precio_final;
+	
+	 public float Calcula_Precio(Consumo c,float p) {
+
+		float resultado = Precio_base;
+		int porcentaje=0;
+		
+		if(p>80) {
+			porcentaje=20;
+		}else if (p<80 & p>49) {
+			porcentaje=15;
+		}else if(p<50 & p>19) {
+			porcentaje=10;
+		}else if (p<20 & p>=0) {
+			porcentaje=5;
+		}
+		
+		return resultado=resultado*(1+(0.3f-(c.ordinal()*0.05f))+(porcentaje/100f));
+	}
+
+	
+	public Electrodomesticos(float precio_base, color color, Consumo consumo, float peso) {
+
+		Precio_base = precio_base;
+		Color = color;
+		this.consumo = consumo;
+		Peso = peso;
+		Precio_final = Calcula_Precio(consumo,peso);
+	}
+	
+	public Electrodomesticos(float precio_base,float peso) {
+
+		Precio_base = precio_base;
+		Color = color.BLANCO;
+		this.consumo = Consumo.F;
+		Peso = peso;
+		Precio_final = Calcula_Precio(consumo,peso);
+	}
+
+
+	public float getPrecio_base() {
+		return Precio_base;
+	}
+
+
+	public color getColor() {
+		return Color;
+	}
+
+
+	public Consumo getConsumo() {
+		return consumo;
+	}
+
+
+	public float getPeso() {
+		return Peso;
+	}
+
+
+	public float getPrecio_final() {
+		return Precio_final;
+	}
+
+
+	public void setPrecio_base(float precio_base) {
+		Precio_base = precio_base;
+	}
+
+
+	public void setColor(color color) {
+		Color = color;
+	}
+
+
+	public void setConsumo(Consumo consumo) {
+		this.consumo = consumo;
+	}
+
+
+	public void setPeso(float peso) {
+		Peso = peso;
+	}
+
+
+	public void setPrecio_final(float precio_final) {
+		Precio_final = precio_final;
+	}
+
+
+	@Override
+	public String toString() {
+		return  Precio_base + "-" + Color + "-" + consumo + "-"
+				+ Peso + "-" + Precio_final + "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Color == null) ? 0 : Color.hashCode());
+		result = prime * result + Float.floatToIntBits(Peso);
+		result = prime * result + Float.floatToIntBits(Precio_base);
+		result = prime * result + Float.floatToIntBits(Precio_final);
+		result = prime * result + ((consumo == null) ? 0 : consumo.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Electrodomesticos other = (Electrodomesticos) obj;
+		if (Color != other.Color)
+			return false;
+		if (Float.floatToIntBits(Peso) != Float.floatToIntBits(other.Peso))
+			return false;
+		if (Float.floatToIntBits(Precio_base) != Float.floatToIntBits(other.Precio_base))
+			return false;
+		if (Float.floatToIntBits(Precio_final) != Float.floatToIntBits(other.Precio_final))
+			return false;
+		if (consumo != other.consumo)
+			return false;
+		return true;
+	}
+	
+	@Override
+	public int compareTo(Electrodomesticos o) {
+		// TODO Auto-generated method stub
+		return this.getColor().compareTo(o.getColor());
+	}
+
+	
+
+	
+	
+}
