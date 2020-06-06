@@ -1,6 +1,8 @@
 package Unidad_7;
 
-public abstract class Electrodomesticos implements Comparable<Electrodomesticos>{
+import java.io.Serializable;
+
+public abstract class Electrodomesticos implements Comparable<Electrodomesticos>,Serializable {
 
 	private float Precio_base;
 

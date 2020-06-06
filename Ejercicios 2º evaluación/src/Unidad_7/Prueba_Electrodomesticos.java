@@ -1,5 +1,10 @@
 package Unidad_7;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -26,11 +31,44 @@ public class Prueba_Electrodomesticos {
 		coleccion.add(televisor);
 		coleccion.add(lavadora_2);
 		
-		Iterator<Electrodomesticos> i=coleccion.iterator();
 		
-		while(i.hasNext()) {
-			System.out.println(i.next().toString());
+		
+		
+		
+		//enviamos objeto
+		
+		try {
+			
+			ObjectOutputStream escribir= new ObjectOutputStream(new FileOutputStream(new File("c:/OBJETOS.dat")));
+			
+			Iterator<Electrodomesticos> i=coleccion.iterator();
+			
+			while(i.hasNext()) {
+				
+				escribir.writeObject(i.next());
+				
+			}
+			
+			
+				
+			
+			
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}
