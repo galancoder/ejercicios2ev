@@ -1,21 +1,27 @@
 package Unidad_7;
 
-public class Televisores {
+public class Televisores extends Electrodomesticos{
 
 	float tamaño;
 	
 	Sintonizador sintonizador;
 
-	public Televisores(float tamaño, Sintonizador sintonizador) {
-		super();
+	
+	public Televisores(float precio_base, color color, Consumo consumo, float peso, float tamaño,
+			Sintonizador sintonizador) {
+		super(precio_base, color, consumo, peso);
 		this.tamaño = tamaño;
 		this.sintonizador = sintonizador;
 	}
-	
-	public Televisores() {
-		super();
-		this.tamaño = 20;
-		this.sintonizador = Sintonizador.SINTONIZADOR_B;
+
+	public Televisores(float precio_base, color color, Consumo consumo, float peso) {
+		super(precio_base, color, consumo, peso);
+		tamaño=20;
+		sintonizador=Sintonizador.SINTONIZADOR_A;
+		
+		
+		
+		
 	}
 
 	public float getTamaño() {

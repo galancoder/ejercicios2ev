@@ -10,15 +10,20 @@ public class Lavadoras extends Electrodomesticos {
 		
 	}
      
-
-	public Lavadoras(float precio_base, color color, Consumo consumo, float peso,Carga carga) {
+	public Lavadoras(float precio_base, color color, Consumo consumo, float peso, Carga carga) {
 		super(precio_base, color, consumo, peso);
 		this.carga = carga;
-		if(carga.getCarga()>8) {
-			super.setPrecio_final(super.getPrecio_final()*((110)/100));
-		}
+		super.setPrecio_final(consumo, peso, carga);
+		
+		
 	}
 
+
+		
+		
+	
+	
+	
 
 	public Carga getCarga() {
 		return carga;

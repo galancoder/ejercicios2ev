@@ -12,24 +12,6 @@ public abstract class Electrodomesticos implements Comparable<Electrodomesticos>
 	
 	private float Precio_final;
 	
-	 public float Calcula_Precio(Consumo c,float p) {
-
-		float resultado = Precio_base;
-		int porcentaje=0;
-		
-		if(p>80) {
-			porcentaje=20;
-		}else if (p<80 & p>49) {
-			porcentaje=15;
-		}else if(p<50 & p>19) {
-			porcentaje=10;
-		}else if (p<20 & p>=0) {
-			porcentaje=5;
-		}
-		
-		return resultado=resultado*(1+(0.3f-(c.ordinal()*0.05f))+(porcentaje/100f));
-	}
-
 	
 	public Electrodomesticos(float precio_base, color color, Consumo consumo, float peso) {
 
@@ -37,7 +19,7 @@ public abstract class Electrodomesticos implements Comparable<Electrodomesticos>
 		Color = color;
 		this.consumo = consumo;
 		Peso = peso;
-		Precio_final = Calcula_Precio(consumo,peso);
+		setPrecio_final(consumo,peso);
 	}
 	
 	public Electrodomesticos(float precio_base,float peso) {
@@ -46,7 +28,7 @@ public abstract class Electrodomesticos implements Comparable<Electrodomesticos>
 		Color = color.BLANCO;
 		this.consumo = Consumo.F;
 		Peso = peso;
-		Precio_final = Calcula_Precio(consumo,peso);
+		setPrecio_final(consumo,peso);
 	}
 
 
@@ -95,9 +77,45 @@ public abstract class Electrodomesticos implements Comparable<Electrodomesticos>
 	}
 
 
-	public void setPrecio_final(float precio_final) {
-		Precio_final = precio_final;
+	public void setPrecio_final(Consumo c,float p) {
+		float resultado = Precio_base;
+		int porcentaje=0;
+		
+		if(p>80) {
+			porcentaje=20;
+		}else if (p<80 & p>49) {
+			porcentaje=15;
+		}else if(p<50 & p>19) {
+			porcentaje=10;
+		}else if (p<20 & p>=0) {
+			porcentaje=5;
+		}
+		
+		 this.Precio_final=this.Precio_base*(1+(0.3f-(c.ordinal()*0.05f))+(porcentaje/100f));
 	}
+	
+	public void setPrecio_final(Consumo c,float p,Carga carga) {
+		float resultado = Precio_base;
+		int porcentaje=0;
+		int porcentaje_carga=0;
+		
+		if(p>80) {
+			porcentaje=20;
+		}else if (p<80 & p>49) {
+			porcentaje=15;
+		}else if(p<50 & p>19) {
+			porcentaje=10;
+		}else if (p<20 & p>=0) {
+			porcentaje=5;
+		}
+		
+		if(carga.getCarga()>8) {
+			porcentaje_carga=10;
+		}
+		
+		 this.Precio_final=this.Precio_base*(1+(0.3f-(c.ordinal()*0.05f))+(porcentaje/100f)+(porcentaje_carga/100f));
+	}
+
 
 
 	@Override

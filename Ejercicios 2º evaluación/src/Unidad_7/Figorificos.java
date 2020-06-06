@@ -1,16 +1,18 @@
 package Unidad_7;
 
-public class Figorificos {
+public class Figorificos extends Electrodomesticos {
 
 	boolean Froost;
 
-	public Figorificos(boolean froost) {
-		super();
+
+
+	public Figorificos(float precio_base, color color, Consumo consumo, float peso, boolean froost) {
+		super(precio_base, color, consumo, peso);
 		Froost = froost;
 	}
 	
-	public Figorificos() {
-		super();
+	public Figorificos(float precio_base, color color, Consumo consumo, float peso) {
+		super(precio_base, color, consumo, peso);
 		Froost = false;
 	}
 
