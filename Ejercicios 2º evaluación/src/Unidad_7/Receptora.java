@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
@@ -27,7 +28,9 @@ public class Receptora {
 				
 				try {
 					
-					Electrodomesticos objeto=(Electrodomesticos) lector.readObject();
+					ArrayList<Electrodomesticos> objeto= (ArrayList<Electrodomesticos>) lector.readObject();
+					
+					
 		
 					System.out.println(objeto);
 					

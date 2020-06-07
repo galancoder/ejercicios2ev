@@ -41,14 +41,7 @@ public class Prueba_Electrodomesticos {
 			
 			ObjectOutputStream escribir= new ObjectOutputStream(new FileOutputStream(new File("c:/OBJETOS.dat")));
 			
-			Iterator<Electrodomesticos> i=coleccion.iterator();
-			
-			while(i.hasNext()) {
-				
-				escribir.writeObject(i.next());
-				
-			}
-			
+			escribir.writeObject(coleccion);
 			
 				
 			
